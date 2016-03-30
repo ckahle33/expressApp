@@ -3,12 +3,13 @@
     <title>User Index</title>
   </head>
   <body>
-    <h1>{{username}}</h1>
+      <a href="/">Back to Users List</a>
+
       <div class="pic">
-        <img src="/profilePics/{{username}}_lg.jpg" alt="">
+        <img src="/profilePics/{{user.username}}_lg.jpg" alt="">
         <p>
           <a href="#" onclick="edit()">Edit</a>
-          <a href="#" onlclick="del()">Delete</a>
+          <a href="#" onclick="del()">Delete</a>
         </p>
       </div>
 
@@ -46,7 +47,7 @@
 
       function cancel() {
         $('.view').show();
-        $('.edit').cancel();
+        $('.edit').hide();
       }
 
       function save() {

@@ -9,7 +9,9 @@
   "author": "craigers",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.13.4"
+    "express": "~4.13.4",
+    "path": "~0.12.7",
+    "body-parser": "~1.15.0"
   },
   "devDependencies": {
     "nodemon": "~1.9.1",
