@@ -1,0 +1,81 @@
+<html lang='en'>
+  <head>
+    <title>User Index</title>
+  </head>
+  <body>
+    <h1>{{username}}</h1>
+      <div class="pic">
+        <img src="/profilePics/{{username}}_lg.jpg" alt="">
+        <p>
+          <a href="#" onclick="edit()">Edit</a>
+          <a href="#" onlclick="del()">Delete</a>
+        </p>
+      </div>
+
+      <h1>{{user.name.full}}</h1>
+      <dl>
+        <dt>Street</dt>
+        <dd class="view">{{address.street}}</dd>
+        <dd class="edit"><input id="street" value="{{address.street}}"></dd>
+        <br>
+        <dt>City</dt>
+        <dd class="view">{{address.city}}</dd>
+        <dd class="edit"><input id="city" value="{{address.city}}"></dd>
+        <br>
+        <dt>State</dt>
+        <dd class="view">{{address.state}}</dd>
+        <dd class="edit"><input id="state" value="{{address.state}}"></dd>
+        <br>
+        <dt>Zip</dt>
+        <dd class="view">{{address.zip}}</dd>
+        <dd class="edit"><input id="zip" value="{{address.zip}}"></dd>
+        <dd class="edit">
+          <input type="submit" value="Save" onclick="save()">
+          <input type="submit" value="Edit" onclick="edit()">
+        </dd>
+        <br>
+
+      </dl>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script type="text/javascript">
+      function edit() {
+        $('.view').hide();
+        $('.edit').show()
+      }
+
+      function cancel() {
+        $('.view').show();
+        $('.edit').cancel();
+      }
+
+      function save() {
+        $.ajax('/{{user.username}}', {
+          method: 'PUT',
+          data: {
+            street: $('#street').val(),
+            city: $('#city').val(),
+            state: $('#state').val(),
+            zip: $('#zip').val()
+          },
+          complete: function() {
+            cancel()
+            location.reload()
+          }
+        })
+      }
+
+      function del() {
+        $.ajax('/{{user.username}}', {
+          method: 'DELETE',
+          complete: function() {
+            location = '/'
+          }
+        })
+      }
+
+      </script>
+
+  </body>
+
+</html>
