@@ -1,0 +1,17 @@
+{
+  "name": "expressApp",
+  "version": "0.0.0",
+  "description": "express app for learning",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "craigers",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "~1.9.1"
+  }
+}
